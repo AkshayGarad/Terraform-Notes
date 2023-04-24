@@ -67,3 +67,15 @@ Plugins can be discovered in two ways:
 2. Manual plugin installation: If a plugin is not found automatically, it can be installed manually by placing the plugin binary in the plugin directory. The plugin binary must be compiled for the appropriate platform and architecture, and it must be named in the format `terraform-provider-<NAME>_vX.Y.Z`, where `<NAME>` is the name of the provider and `X.Y.Z` is the version number.
 
 Terraform's plugin system makes it easy to extend the functionality of Terraform by adding new providers or resources. By following the plugin development guidelines provided by Terraform, developers can create high-quality plugins that are compatible with the Terraform ecosystem.
+
+## 2. Can I add policies to the open-source or pro version of Terraform enterprise?
+Terraform Enterprise is a paid offering from HashiCorp that provides additional features and functionality beyond the open-source version of Terraform. One of the features of Terraform Enterprise is Policy as Code, which allows you to define policies that enforce compliance and governance in your infrastructure deployments.
+
+The Policy as Code feature is only available in the paid versions of Terraform Enterprise. It is not available in the open-source version of Terraform or the free version of Terraform Cloud.
+
+With Policy as Code in Terraform Enterprise, you can write policies in a variety of languages, including HCL, JSON, and Rego. These policies can be used to enforce a wide range of compliance and governance requirements, such as access control, resource tagging, and configuration standards.
+
+Additionally, Terraform Enterprise provides a policy framework that allows you to easily integrate with external policy engines, such as Sentinel, to enforce policies across your infrastructure deployments.
+
+So, to answer your question, if you want to use Policy as Code in Terraform, you will need to use the paid versions of Terraform Enterprise. The open-source version of Terraform and the free version of Terraform Cloud do not provide this feature.
+
