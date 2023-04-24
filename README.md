@@ -116,3 +116,20 @@ In this example, the `source` argument specifies the URL of the module and the `
 3. Terraform Enterprise: If you are using Terraform Enterprise, you can use the workspace lock feature to lock modules to specific versions. Workspace locks can be managed from the Terraform Enterprise UI, and can be used to ensure that all deployments within a workspace use the same versions of modules.
 
 Overall, locking module versions is an important best practice in Terraform that can help ensure that your infrastructure deployments are consistent and predictable over time. By using version constraints, lock files, or Terraform Enterprise, you can ensure that only the specified versions of modules are used in your deployments, reducing the risk of unexpected changes or issues.
+
+## 5. What do you mean by Terraform cloud?
+Terraform Cloud is a web-based platform that provides a centralized location for managing Terraform infrastructure deployments. It is a hosted version of Terraform Enterprise, which is a commercial offering from HashiCorp.
+
+With Terraform Cloud, you can store your Terraform configuration files, manage your state files, and collaborate with team members on infrastructure deployments. Terraform Cloud provides several features, including:
+
+1. Workspaces: Workspaces are a way to organize and manage your Terraform configurations. Each workspace represents a separate deployment environment, such as development, staging, or production.
+
+2. Remote State Storage: Terraform Cloud provides a remote state storage feature that allows you to store your state files securely in the cloud. This helps ensure that your state files are always up-to-date and accessible from anywhere.
+
+3. Collaboration: Terraform Cloud provides a collaborative environment for managing infrastructure deployments. You can share workspaces with team members, manage access controls, and track changes to your deployments over time.
+
+4. Version Control: Terraform Cloud integrates with version control systems like GitHub, allowing you to manage your Terraform configuration files alongside your application code.
+
+5. Cost Estimation: Terraform Cloud provides a cost estimation feature that allows you to estimate the cost of your infrastructure deployments before actually applying them.
+
+Overall, Terraform Cloud provides a centralized platform for managing Terraform infrastructure deployments, making it easier to collaborate with team members, manage state files, and ensure consistency and reliability in your infrastructure.
