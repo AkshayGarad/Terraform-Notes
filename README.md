@@ -79,3 +79,21 @@ Additionally, Terraform Enterprise provides a policy framework that allows you t
 
 So, to answer your question, if you want to use Policy as Code in Terraform, you will need to use the paid versions of Terraform Enterprise. The open-source version of Terraform and the free version of Terraform Cloud do not provide this feature.
 
+## 3. Define Modules in Terraform?
+In Terraform, a module is a self-contained package of Terraform configurations that can be used as a building block to create larger, more complex infrastructure deployments. A module can be thought of as a reusable component that encapsulates a set of related resources, configurations, and variables.
+
+Modules in Terraform have several benefits, including:
+
+1. Reusability: Modules can be shared and reused across different Terraform configurations and projects, making it easier to manage and maintain infrastructure deployments.
+
+2. Abstraction: Modules provide a level of abstraction that allows you to hide the complexity of your infrastructure deployments and expose only the necessary inputs and outputs.
+
+3. Separation of concerns: Modules allow you to separate your infrastructure resources into logical groups, making it easier to manage and maintain your deployments.
+
+4. Versioning: Modules can be versioned and managed separately from your main Terraform configurations, providing better control over changes and updates.
+
+A module in Terraform consists of a set of files that define the resources and configurations to be created. These files are typically organized into a directory structure that follows a standard naming convention. The main file in a module is called `main.tf`, and it defines the resources to be created. Additional files can be used to define variables, outputs, and other configurations.
+
+To use a module in a Terraform configuration, you must first declare the module and provide any necessary input variables. This is done using the `module` block in your main configuration file. Once the module is declared, you can reference its resources and outputs just like any other Terraform resource.
+
+Overall, modules are a powerful feature in Terraform that allow you to create reusable and maintainable infrastructure deployments. By encapsulating resources and configurations into modules, you can reduce complexity and increase reusability, making it easier to manage and maintain your infrastructure over time.
