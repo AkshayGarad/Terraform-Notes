@@ -97,3 +97,22 @@ A module in Terraform consists of a set of files that define the resources and c
 To use a module in a Terraform configuration, you must first declare the module and provide any necessary input variables. This is done using the `module` block in your main configuration file. Once the module is declared, you can reference its resources and outputs just like any other Terraform resource.
 
 Overall, modules are a powerful feature in Terraform that allow you to create reusable and maintainable infrastructure deployments. By encapsulating resources and configurations into modules, you can reduce complexity and increase reusability, making it easier to manage and maintain your infrastructure over time.
+
+## 4. What are the ways to lock Terraform module versions?
+Terraform provides several ways to lock module versions to ensure that your infrastructure deployments are consistent and predictable over time. These include:
+
+1. Terraform Configurations: You can specify a specific version of a module in your Terraform configuration files using a version constraint. For example, you can use the `version` argument in the `module` block to specify a specific version of a module.
+
+```
+module "example" {
+  source = "git::https://example.com/modules/example.git?ref=v1.2.0"
+}
+```
+
+In this example, the `source` argument specifies the URL of the module and the `ref` parameter specifies the specific version to use (`v1.2.0`).
+
+2. Lock files: Terraform also supports lock files, which are files that explicitly specify the versions of modules and providers to use in your deployments. Lock files can be created using the `terraform init` command with the `-lockfile` flag. Once a lock file is created, Terraform will use it to ensure that only the specified versions of modules and providers are used in subsequent deployments.
+
+3. Terraform Enterprise: If you are using Terraform Enterprise, you can use the workspace lock feature to lock modules to specific versions. Workspace locks can be managed from the Terraform Enterprise UI, and can be used to ensure that all deployments within a workspace use the same versions of modules.
+
+Overall, locking module versions is an important best practice in Terraform that can help ensure that your infrastructure deployments are consistent and predictable over time. By using version constraints, lock files, or Terraform Enterprise, you can ensure that only the specified versions of modules are used in your deployments, reducing the risk of unexpected changes or issues.
