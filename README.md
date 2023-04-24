@@ -133,3 +133,40 @@ With Terraform Cloud, you can store your Terraform configuration files, manage y
 5. Cost Estimation: Terraform Cloud provides a cost estimation feature that allows you to estimate the cost of your infrastructure deployments before actually applying them.
 
 Overall, Terraform Cloud provides a centralized platform for managing Terraform infrastructure deployments, making it easier to collaborate with team members, manage state files, and ensure consistency and reliability in your infrastructure.
+
+## 6. Define null resource in Terraform?
+The `null_resource` is a Terraform resource type that allows you to define a resource block with no real resource provider associated with it. Instead, it is used as a placeholder for arbitrary operations or as a means to execute arbitrary code during Terraform's apply phase.
+
+The `null_resource` resource is useful when you want to perform a task that is not supported by a built-in Terraform resource. For example, you may want to run a script or command on a local machine as part of your Terraform deployment. In this case, you can use the `null_resource` to define a resource block that runs a local-exec provisioner.
+
+Here's an example of how to use `null_resource` to execute a local script:
+
+```
+resource "null_resource" "local_script" {
+  provisioner "local-exec" {
+    command = "./my-local-script.sh"
+  }
+}
+```
+
+In this example, the `null_resource` block has a local-exec provisioner that runs the `my-local-script.sh` script when Terraform applies the configuration.
+
+Another use case for `null_resource` is to force a refresh of a resource that does not normally require one. For example, you can use a `null_resource` to trigger a refresh of an AWS EC2 instance by defining a `depends_on` attribute that references the EC2 instance resource:
+
+```
+resource "aws_instance" "example" {
+  ami = "ami-0c55b159cbfafe1f0"
+  instance_type = "t2.micro"
+}
+
+resource "null_resource" "refresh_instance" {
+  depends_on = [aws_instance.example]
+  triggers = {
+    instance_id = aws_instance.example.id
+  }
+}
+```
+
+In this example, the `null_resource` block has a trigger that references the `id` attribute of the `aws_instance` resource. When Terraform applies the configuration, it will refresh the EC2 instance resource even though there are no other changes to the configuration.
+
+Overall, the `null_resource` resource type is a powerful and flexible tool in Terraform that can be used for a variety of tasks, from executing local scripts to forcing resource refreshes.
