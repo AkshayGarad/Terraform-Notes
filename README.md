@@ -218,3 +218,18 @@ A resource can become tainted due to various reasons, such as a failure during r
 Terraform's behavior with tainted resources helps to ensure that the infrastructure is consistent and reliable, even in the presence of failures or changes. When a resource is recreated, Terraform will create it from scratch, which helps to ensure that it is in the correct state and configuration.
 
 To avoid tainting resources, it's important to follow best practices for testing and validating infrastructure changes before applying them in production. Additionally, it's important to investigate the cause of the taint and address any underlying issues to prevent it from happening again.
+
+## 11. How to prevent Error Duplicate Resource?
+In Terraform, the "Error Duplicate Resource" error occurs when you attempt to create a resource that already exists in your infrastructure. This error can occur if you are re-creating a resource that was previously destroyed or if you have two or more resources with the same name.
+
+To prevent the "Error Duplicate Resource" error, you can follow these best practices:
+
+1. Use unique names for each resource: Make sure that each resource has a unique name across your entire infrastructure. This can be achieved by using naming conventions or by including unique identifiers in the resource names.
+
+2. Use Terraform data sources: Instead of creating new resources, you can use Terraform data sources to reference existing resources in your infrastructure. Data sources allow you to retrieve information about resources that were created outside of Terraform.
+
+3. Use Terraform state files: Make sure that you are using the same state file across all instances of Terraform that are working on the same infrastructure. This ensures that Terraform is aware of all existing resources and can prevent the creation of duplicate resources.
+
+4. Use the "terraform import" command: If you have already created a resource outside of Terraform, you can use the "terraform import" command to import the resource into your Terraform state file. This allows Terraform to manage the resource going forward and prevents the creation of a duplicate resource.
+
+By following these best practices, you can prevent the "Error Duplicate Resource" error in Terraform and ensure that your infrastructure remains consistent and reliable.
