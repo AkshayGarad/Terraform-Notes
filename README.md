@@ -210,4 +210,11 @@ Terraform supports several types of remote backends, including Amazon S3, Azure 
 
 Using a remote backend in Terraform can improve collaboration and consistency in infrastructure management, as well as provide additional features like locking and versioning. However, it's important to choose a backend that meets your specific requirements and security needs, and to follow best practices for securing and managing access to the state file.
 
-##
+## 10. What is a Tainted Resource?
+In Terraform, a tainted resource is a resource that has been marked as "tainted" due to a failure or an error during the last Terraform apply operation. When a resource is tainted, Terraform considers it to be in an unknown or unreliable state, and will plan to recreate it on the next apply operation.
+
+A resource can become tainted due to various reasons, such as a failure during resource creation or a change in a dependency that invalidates the resource. When Terraform detects a tainted resource, it marks it as such in the state file, and includes it in the plan for the next apply operation, which means that it will be destroyed and recreated.
+
+Terraform's behavior with tainted resources helps to ensure that the infrastructure is consistent and reliable, even in the presence of failures or changes. When a resource is recreated, Terraform will create it from scratch, which helps to ensure that it is in the correct state and configuration.
+
+To avoid tainting resources, it's important to follow best practices for testing and validating infrastructure changes before applying them in production. Additionally, it's important to investigate the cause of the taint and address any underlying issues to prevent it from happening again.
