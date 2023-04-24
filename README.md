@@ -185,3 +185,18 @@ When a Terraform `apply` fails, there are a few steps you can take to recover fr
 5. Consider using a state file backup: If the failure is caused by corruption or deletion of the Terraform state file, consider restoring a backup of the state file. Terraform state file backups are created automatically by default, but you can also create manual backups using the `terraform state pull` and `terraform state push` commands.
 
 It's important to note that when recovering from a failed apply, you should carefully review any changes that were made before retrying the `apply` command to avoid any unintended consequences.
+
+## 8. What do you mean by Terragrunt, list some of its use cases?
+Terragrunt is a thin wrapper around Terraform that provides extra functionality and best practices for working with Terraform in production environments. Some of the use cases for Terragrunt are:
+
+1. Simplifying Terraform configurations: Terragrunt provides simple ways to define common Terraform configuration settings like remote state storage, locking, and backend configuration.
+
+2. Managing multiple Terraform modules: Terragrunt allows you to manage multiple Terraform modules in a consistent and reusable way, making it easier to maintain your infrastructure over time.
+
+3. Enforcing version control: Terragrunt supports Git repositories, allowing you to enforce version control and provide better tracking of changes to your infrastructure code.
+
+4. Implementing infrastructure as code best practices: Terragrunt helps enforce infrastructure as code (IaC) best practices like code reuse, separation of concerns, and automation.
+
+5. Automating Terraform workflows: Terragrunt provides a simple way to automate complex workflows with Terraform, including bootstrapping environments, deploying changes, and destroying resources.
+
+Overall, Terragrunt helps simplify the management and automation of Terraform configurations, making it easier to maintain, scale, and collaborate on infrastructure code.
